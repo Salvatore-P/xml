@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:simpleType name="positiveInteger" id="positiveInteger">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="Acteur">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Id"/>	
+				<xs:element name="Nom" type="xs:string"/>
+				<xs:element name="Role" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="Directeur">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Id"/>	
+				<xs:element name="Nom" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="Genre">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Id"/>	
+				<xs:element name="Nom" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="Td">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="1">
+				<xs:element name="Genre"/>	
+				<xs:element name="Directeur"/>
+				<xs:element name="Acteur"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="List">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Td" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+				
+	<xs:element name="Film">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Id"/>
+				<xs:element name="Titre" type="xs:string"/>
+				<xs:element name="TitreOriginal" type="xs:string"/>
+				<xs:element name="DateSortie" type="xs:date"/>
+				<xs:element name="Status" type="xs:string"/>
+				<xs:element name="Note" type="xs:decimal"/>
+				<xs:element name="NbNote" type="xs:decimal"/>
+				<xs:element name="Duree" type="xs:integer"/>
+				<xs:element name="Certification" type="xs:string"/>
+				<xs:element name="Img" type="xs:string"/>
+				<xs:element name="Prix" type="xs:integer"/>
+				<xs:element name="Tagline" type="xs:string"/>
+				<xs:element name="List"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="videotheque">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Film"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
