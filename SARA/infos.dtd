@@ -1,0 +1,22 @@
+	<!ELEMENT videotheque (Film*)>
+	<!ELEMENT Film (Id, Titre?, TitreOriginal?, DateSortie?, Status?, Note?, NbNote?, Duree?, Certification?, Img?, Prix?, Tagline?, List*)>
+	<!ELEMENT videotheque (Film*)>
+	<!ELEMENT Id (#PCDATA)>
+	<!ELEMENT Titre (#PCDATA)>
+	<!ELEMENT TitreOriginal (#PCDATA)>
+	<!ELEMENT DateSortie (#PCDATA)>
+	<!ELEMENT Status (#PCDATA)>
+	<!ELEMENT Note (#PCDATA)>
+	<!ELEMENT NbNote (#PCDATA)>
+	<!ELEMENT Duree (#PCDATA)>
+	<!ELEMENT Certification (#PCDATA)>
+	<!ELEMENT Img (#PCDATA)>
+	<!ELEMENT Prix (#PCDATA)>
+	<!ELEMENT Tagline (#PCDATA)>
+	<!ELEMENT List (Td*)>	
+	<!ELEMENT Td (Genre | Directeur | Acteur)*>
+	<!ELEMENT Genre (Id, Nom?)>
+	<!ELEMENT Nom (#PCDATA)>
+	<!ELEMENT Directeur (Id, Nom?)>
+	<!ELEMENT Acteur (Id, Nom?, Role?)>
+	<!ELEMENT Role (#PCDATA)>			
