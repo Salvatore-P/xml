@@ -18,13 +18,14 @@ public class SaxValidation {
     private SAXParserFactory _factory;
 
     SaxValidation(String FileXml) {
+        System.out.println("Constructeur 1");
         _fileName = FileXml;
         _factory = SAXParserFactory.newInstance();
         _factory.setValidating(false);
         try {
             SAXParser parser = _factory.newSAXParser();
             parser.getXMLReader().parse(_fileName);
-            parser.parse(_fileName, new HandlerSax());
+            //parser.parse(_fileName, new HandlerSax());
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
@@ -36,25 +37,27 @@ public class SaxValidation {
     }
 
     SaxValidation(String FileXml, String schema) {
+        System.out.println("Constructeur 2");
         _fileName = FileXml;
         _schema = "..\\Fichier\\" + schema;
         _factory = SAXParserFactory.newInstance();
         _factory.setValidating(false);
         try {
             SAXParser parser = _factory.newSAXParser();
-            parser.parse(_fileName, new HandlerSax());
+            //parser.parse(_fileName, new HandlerSax());
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        } /*catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 
     void DtdValidation() {
         _factory.setNamespaceAware(true);
+        System.out.println("DTD Validation");
 
     }
 
@@ -64,6 +67,7 @@ public class SaxValidation {
 
         try {
             _factory.setSchema(schemaFactory.newSchema(new Source[]{new StreamSource(_schema)}));
+            System.out.println("XSD Validation");
 
         } catch (SAXException e) {
             System.out.println("SCHEMA : " + e.getMessage());  // problem in the XSD itself
