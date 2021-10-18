@@ -59,11 +59,13 @@ public class HandlerSax extends DefaultHandler {
 
     public void error(SAXParseException e) throws SAXException {
         System.out.println("ERROR : " + e.getMessage());
+        System.out.println("Ligne : " + e.getLineNumber());
         throw e;
     }
 
     public void fatalError(SAXParseException e) throws SAXException {
         System.out.println("FATAL : " + e.getMessage());
+        System.out.println("Ligne : " + e.getLineNumber());
         throw e;
     }
 }
