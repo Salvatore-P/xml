@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GenerationXml/GenerationXml.iml" filepath="$PROJECT_DIR$/GenerationXml/GenerationXml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ValidationXml/ValidationXml.iml" filepath="$PROJECT_DIR$/ValidationXml/ValidationXml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/xml.iml" filepath="$PROJECT_DIR$/.idea/xml.iml" />
+    </modules>
+  </component>
+</project>
