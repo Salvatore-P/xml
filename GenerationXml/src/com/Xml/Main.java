@@ -59,7 +59,7 @@ public class Main {
         return new BufferedReader(new FileReader("..\\Fichier\\1000movies.txt"));
     }
     public static void ecritureEntete(BufferedWriter bw, String schema) throws IOException {
-        String doctype = "<!DOCTYPE infos SYSTEM \"" + schema + "\">\n";
+        String doctype = "<!DOCTYPE videotheque SYSTEM \"" + schema + "\">\n";
         bw.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
         bw.write(doctype);
         bw.write("<videotheque>\n");

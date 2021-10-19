@@ -11,10 +11,10 @@ public class HandlerSax extends DefaultHandler {
 
     // Quelques méthodes du ContentHandler
     public void characters(char[] ch, int start, int length) throws SAXException {
-        String chaine = new String(ch, start, length).trim();
+        /*String chaine = new String(ch, start, length).trim();
         if (chaine.length() > 0) {
             System.out.println("@ Caractères : " + chaine);
-        }
+        }*/
     }
 
     public void startDocument() throws SAXException {
@@ -22,11 +22,12 @@ public class HandlerSax extends DefaultHandler {
     }
 
     public void endDocument() throws SAXException {
+        System.out.println(this.toString());
         System.out.println("** Fin du document **");
     }
 
     public void startElement(java.lang.String uri, java.lang.String localName, java.lang.String qName, Attributes attr) throws SAXException {
-        System.out.println("* Début d'un élément");
+       /* System.out.println("* Début d'un élément");
         cptTags++;
         System.out.println("++ compteur de tags : " + cptTags);
         if (uri != null && uri.length() > 0) {
@@ -43,13 +44,13 @@ public class HandlerSax extends DefaultHandler {
         }
         for (int i = 0; i < nAttr; i++) {
             System.out.println(" attribut n°" + i + " = " + attr.getLocalName(i) + " avec valeur : " + attr.getValue(i));
-        }
+        }*/
     }
 
     public void endElement(java.lang.String uri, java.lang.String localName, java.lang.String qName) throws SAXException {
-        System.out.println("* Fin de l'élément " + localName);
+        /*System.out.println("* Fin de l'élément " + localName);
         cptTags++;
-        System.out.println("++ compteur de tags : " + cptTags);
+        System.out.println("++ compteur de tags : " + cptTags);*/
     }
 
     //Et d'autres du error handler
