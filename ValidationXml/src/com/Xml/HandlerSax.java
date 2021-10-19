@@ -22,7 +22,6 @@ public class HandlerSax extends DefaultHandler {
     }
 
     public void endDocument() throws SAXException {
-        System.out.println(this.toString());
         System.out.println("** Fin du document **");
     }
 
