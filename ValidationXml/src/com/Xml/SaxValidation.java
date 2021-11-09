@@ -47,7 +47,7 @@ public class SaxValidation {
                 SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 
         _fileName = FileXml;
-        _schema = "..\\Fichier\\" + schema;
+        _schema = "Fichier\\" + schema;
 
         try {
             _factory.setSchema(schemaFactory.newSchema(new Source[]{new StreamSource(_schema)}));
@@ -61,8 +61,14 @@ public class SaxValidation {
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
+    }
 
-
+    public Boolean isDTD(String FileName)
+    {
+        Boolean DTD = true;
+        if(FileName.trim().equals("Fichier\\XML_ModifierDTD.xml") == false)
+            DTD = false;
+        return DTD;
     }
 
 }

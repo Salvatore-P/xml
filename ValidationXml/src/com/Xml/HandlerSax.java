@@ -5,45 +5,62 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class HandlerSax extends DefaultHandler {
 
     int cptTags = 0;
+    int certification ;
 
     // Quelques méthodes du ContentHandler
     public void characters(char[] ch, int start, int length) throws SAXException {
-        /*String chaine = new String(ch, start, length).trim();
-        if (chaine.length() > 0) {
-            System.out.println("@ Caractères : " + chaine);
-        }*/
+
+        String chaine = new String(ch, start, length).trim();
+
+        if(certification == 1){
+
+            if(chaine.equals("PG-13")){
+
+                cptTags++;
+
+            }
+
+        }
+
     }
 
     public void startDocument() throws SAXException {
-        System.out.println("** Début du document **");
+        //System.out.println("** Début du document **");
     }
 
     public void endDocument() throws SAXException {
-        System.out.println("** Fin du document **");
+        //System.out.println("** Fin du document **");
+
+        System.out.println("Nombre de film PG-13 : " + cptTags);
     }
 
     public void startElement(java.lang.String uri, java.lang.String localName, java.lang.String qName, Attributes attr) throws SAXException {
-       /* System.out.println("* Début d'un élément");
-        cptTags++;
-        System.out.println("++ compteur de tags : " + cptTags);
+
+        certification = 0;
+
         if (uri != null && uri.length() > 0) {
-            System.out.println(" uri : " + uri);
         }
-        System.out.println(" nom complet : " + qName);
+
+        if(qName.equals("Certification")){
+
+            certification = 1;
+        }
+
+
         if (uri != null && uri.length() > 0) {
-            System.out.println(" nom complet : " + qName);
         }
         int nAttr = attr.getLength();
-        System.out.println(" nombre d'attributs :" + nAttr);
         if (nAttr == 0) {
             return;
         }
         for (int i = 0; i < nAttr; i++) {
-            System.out.println(" attribut n°" + i + " = " + attr.getLocalName(i) + " avec valeur : " + attr.getValue(i));
-        }*/
+         }
     }
 
     public void endElement(java.lang.String uri, java.lang.String localName, java.lang.String qName) throws SAXException {

@@ -50,19 +50,23 @@ public class Main {
     }
     public static BufferedWriter OpenBuffWr(String name) throws IOException {
 
-        String FileName = "..\\Fichier\\" + name;
+        String FileName = "Fichier\\" + name;
         File file = new File(FileName);
         return new BufferedWriter(new FileWriter(file.getAbsoluteFile()));
     }
     public static BufferedReader OpenBuffRe() throws IOException {
 
-        return new BufferedReader(new FileReader("..\\Fichier\\1000movies.txt"));
+        return new BufferedReader(new FileReader("C:\\Users\\conti\\Documents\\CoursInfo\\BAC 3\\Q1\\XML & BD avancées\\xml\\Fichier\\1000movies.txt"));
     }
     public static void ecritureEntete(BufferedWriter bw, String schema) throws IOException {
         String doctype = "<!DOCTYPE videotheque SYSTEM \"" + schema + "\">\n";
         bw.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
-        bw.write(doctype);
-        bw.write("<videotheque>\n");
+        //bw.write(doctype);
+        bw.write("<videotheque\n" +
+                "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" +
+                "xsi:noNamespaceSchemaLocation=\"InfosXSD.xsd\">\n"
+                );
+        //bw.write("<videotheque>\n");
     }
     public static Film lectureDocument(String str) throws IllegalAccessException {
         String[] token,date;
