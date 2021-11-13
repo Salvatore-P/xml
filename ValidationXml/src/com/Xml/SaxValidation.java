@@ -18,6 +18,7 @@ public class SaxValidation {
     private SAXParserFactory _factory;
     private SAXParser _parser;
 
+
     SaxValidation(String FileXml)  {
         _factory = SAXParserFactory.newInstance();
         _factory.setValidating(true);
@@ -63,10 +64,9 @@ public class SaxValidation {
         }
     }
 
-    public Boolean isDTD(String FileName)
-    {
+    public Boolean isDTD(String FileName) {
         Boolean DTD = true;
-        if(FileName.trim().equals("Fichier\\XML_ModifierDTD.xml") == false)
+        if (FileName.trim().equals("Fichier\\XML_ModifierDTD.xml") == false)
             DTD = false;
         return DTD;
     }
